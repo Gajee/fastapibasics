@@ -1,0 +1,117 @@
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <form enctype="multipart/form-data" id="addProductForm">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupFileAddon01"
+            >Upload</span
+          >
+        </div>
+        <div class="custom-file">
+          <input
+            type="file"
+            class="custom-file-input"
+            id="inputGroupFile01"
+            aria-describedby="inputGroupFileAddon01"
+          /><br />
+          <label class="custom-file-label" for="inputGroupFile01"
+            >Choose file</label
+          ><br />
+        </div>
+      </div>
+      <br />
+      name: <input type="text" class="name`" id="name" />
+      <br />
+      Last name:<input type="text" class="name`" id="last" />
+      <br />
+      Phone:<input type="number" class="name`" id="phone" />
+      <br />
+      <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+    ></script>
+    <script>
+      $("#submit").click(function (event) {
+        // alert("jj");
+        // window.location =
+        //   "http://localhost/trackado/python_project/frontend/mapping.html";
+
+        // $("#addProductForm").submit(function (event) {
+        // alert("submitted");
+        event.preventDefault();
+        // const data = {
+        const name = $("#name").val();
+        const last = $("#last").val();
+        const phone = $("#phone").val();
+        const file = $("#inputGroupFile01").prop("files")[0];
+        // };
+        //grab all form data
+        var formData = new FormData();
+        formData.append("name", name);
+        formData.append("last", last);
+        formData.append("phone", phone);
+        formData.append("file", file);
+        console.log(formData);
+
+        // var object = {};
+        // formData.forEach((value, key) => (object[key] = value));
+        // var json = JSON.stringify(object);
+
+        $.ajax({
+          url: "http://127.0.0.1:8000/upload",
+          type: "POST",
+          // dataType: "script",
+          processData: false,
+          contentType: false,
+          data: formData,
+
+          success: function (message) {
+            // alert("dfnvjek");
+            console.log(message.status, "bdsfjfjh");
+            if (message.status) {
+              localStorage.setItem("data", JSON.stringify(message));
+              // console.log(localStorage.getItem("data"));
+              // false;
+              location.href =
+                "http://localhost/trackado/python_project/frontend/mapping.html";
+            } else {
+              console.log(message);
+            }
+          },
+          // error: function (message) {
+          //   // Success = false;
+          //   console.log(message);
+          // },
+        });
+      });
+    </script>
+  </body>
+</html>

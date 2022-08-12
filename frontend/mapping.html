@@ -1,0 +1,273 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap");
+
+  *,
+  body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body {
+    height: 100%;
+    background-color: #152733;
+    overflow: hidden;
+  }
+
+  .form-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+  }
+
+  .form-holder .form-content {
+    position: relative;
+    text-align: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 60px;
+  }
+
+  .form-content .form-items {
+    border: 3px solid #fff;
+    padding: 40px;
+    display: inline-block;
+    width: 100%;
+    min-width: 540px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    text-align: left;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+  }
+
+  .form-content h3 {
+    color: #fff;
+    text-align: left;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .form-content h3.form-title {
+    margin-bottom: 30px;
+  }
+
+  .form-content p {
+    color: #fff;
+    text-align: left;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 20px;
+    margin-bottom: 30px;
+  }
+
+  .form-content label,
+  .was-validated .form-check-input:invalid ~ .form-check-label,
+  .was-validated .form-check-input:valid ~ .form-check-label {
+    color: #fff;
+  }
+
+  .form-content input[type="text"],
+  .form-content input[type="password"],
+  .form-content input[type="email"],
+  .form-content select {
+    width: 100%;
+    padding: 9px 20px;
+    text-align: left;
+    border: 0;
+    outline: 0;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 15px;
+    font-weight: 300;
+    color: #8d8d8d;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    margin-top: 16px;
+  }
+
+  .btn-primary {
+    background-color: #6c757d;
+    outline: none;
+    border: 0px;
+    box-shadow: none;
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:active {
+    background-color: #495056;
+    outline: none !important;
+    border: none !important;
+    box-shadow: none;
+  }
+
+  .form-content textarea {
+    position: static !important;
+    width: 100%;
+    padding: 8px 20px;
+    border-radius: 6px;
+    text-align: left;
+    background-color: #fff;
+    border: 0;
+    font-size: 15px;
+    font-weight: 300;
+    color: #8d8d8d;
+    outline: none;
+    resize: none;
+    height: 120px;
+    -webkit-transition: none;
+    transition: none;
+    margin-bottom: 14px;
+  }
+
+  .form-content textarea:hover,
+  .form-content textarea:focus {
+    border: 0;
+    background-color: #ebeff8;
+    color: #8d8d8d;
+  }
+
+  .mv-up {
+    margin-top: -9px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .invalid-feedback {
+    color: #ff606e;
+  }
+
+  .valid-feedback {
+    color: #2acc80;
+  }
+</style>
+
+<div class="form-body">
+  <div class="row">
+    <div class="form-holder">
+      <div class="form-content">
+        <div class="form-items">
+          <h3>Field Mapping</h3>
+          <form class="requires-validation" novalidate>
+            <div class="col-md-12">
+              <select id="name" class="form-select mt-3" required>
+                <option selected disabled value=""></option>
+                <!-- <option selected disabled value="">Position</option>
+                <option value="jweb">Junior Web Developer</option>
+                <option value="sweb">Senior Web Developer</option>
+                <option value="pmanager">Project Manager</option> -->
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <select id="ba" class="form-select mt-3" required>
+                <option selected disabled value=""></option>
+                <!-- <option selected disabled value="">Position</option>
+                <option value="jweb">Junior Web Developer</option>
+                <option value="sweb">Senior Web Developer</option>
+                <option value="pmanager">Project Manager</option> -->
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <select id="email" class="form-select mt-3" required>
+                <option selected disabled value=""></option>
+                <!-- <option selected disabled value="">Position</option>
+                <option value="jweb">Junior Web Developer</option>
+                <option value="sweb">Senior Web Developer</option>
+                <option value="pmanager">Project Manager</option> -->
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <select id="info" class="form-select mt-3" required>
+                <option selected disabled value=""></option>
+                <!-- <option selected disabled value="">Position</option>
+                <option value="jweb">Junior Web Developer</option>
+                <option value="sweb">Senior Web Developer</option>
+                <option value="pmanager">Project Manager</option> -->
+              </select>
+            </div>
+            <br />
+            <input type="hidden" name="" id="saved_at" value="" />
+
+            <div class="form-button mt-3">
+              <button id="submit" type="submit" class="btn btn-primary">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+  $(document).ready(function () {
+    var data = localStorage.getItem("data");
+    var parsed_data = JSON.parse(data);
+    console.log(parsed_data.saved_at);
+    const final = JSON.parse(parsed_data.data);
+    console.log(final[1]);
+    for (let i = 0; i < final.length; i++) {
+      $("select").append($("<option>", { value: final[i], text: final[i] }));
+    }
+    $("#saved_at").val(parsed_data.saved_at);
+  });
+
+  $("#submit").click(function (event) {
+    event.preventDefault();
+
+    const name = $("#name").val();
+    const ba = $("#ba").val();
+    const email = $("#email").val();
+    const c_info = $("#info").val();
+    const file = $("#saved_at").val();
+    // alert(file);
+
+    var formData = new FormData();
+    formData.append("name", name);
+    formData.append("ba", ba);
+    formData.append("email", email);
+    formData.append("c_info", c_info);
+    formData.append("file", file);
+    console.log(formData);
+
+    $.ajax({
+      url: "http://127.0.0.1:8000/import",
+      type: "POST",
+      processData: false,
+      contentType: false,
+      data: formData,
+
+      success: function (message) {
+        console.log(message, "bdsfjfjh");
+        // if (message.status) {
+        //   localStorage.setItem("data", JSON.stringify(message));
+        //   // console.log(localStorage.getItem("data"));
+        //   // false;
+        //   location.href =
+        //     "http://localhost/trackado/python_project/frontend/mapping.html";
+        // } else {
+        //   console.log(message);
+        // }
+      },
+    });
+  });
+</script>
